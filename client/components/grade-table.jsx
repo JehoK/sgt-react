@@ -1,12 +1,7 @@
-/* eslint-disable no-useless-constructor */
-
 import React from 'react';
 import Grade from './grade';
 
 class GradeTable extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -19,7 +14,7 @@ class GradeTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.grades
+          {this.props.grades.length !== 0
             ? this.props.grades.map(grade => {
               return <Grade key={grade.id} grade={grade}/>;
             })
