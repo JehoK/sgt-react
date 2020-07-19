@@ -18,7 +18,11 @@ class GradeTable extends React.Component {
             ? this.props.grades.map(grade => {
               return <Grade key={grade.id} grade={grade}/>;
             })
-            : <p>No Grades Recorded.</p>
+            : <tr>
+              <td>
+                  No Grades Recorded.
+              </td>
+            </tr>
           }
         </tbody>
       </table>
