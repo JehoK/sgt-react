@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import GradeTable from './grade-table';
 import Header from './header';
@@ -22,6 +23,9 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.grade.length === 0) {
+      return <h1>Loading...</h1>;
+    }
     return (
       <div>
         <Header grades={this.state.grade}/>
