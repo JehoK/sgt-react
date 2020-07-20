@@ -5,7 +5,7 @@ class GradeTable extends React.Component {
 
   render() {
     return (
-      <table className="table">
+      <table className="table table-striped col-8">
         <thead className="table-dark">
           <tr>
             <th>Student Name</th>

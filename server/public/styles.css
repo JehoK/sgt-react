@@ -1,3 +1,16 @@
 body {
   margin: 2rem 4rem;
 }
+span {
+
+}
+.input-group {
+  margin-bottom: 0.5rem;
+}
+.btnss {
+  display: flex;
+  justify-content: flex-end;
+}
+button {
+  margin-left: 0.5rem;
+}
