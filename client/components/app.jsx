@@ -13,6 +13,14 @@ class App extends React.Component {
     this.getGrade();
   }
 
+  delete(id) {
+    fetch(`http://localhost:3000/api/grades/${id}`, {
+      method: 'DELETE'
+    });
+    const index = this.state.students.findIndex(student => student.id === id);
+    this.setState({ students: this.state.students.slice(0, index).concat(this.state.students.slice(index + 1)) });
+  }
+
   getGrade() {
     fetch('http://localhost:3000/api/grades').then(
       data => data.json()
@@ -45,15 +53,7 @@ class App extends React.Component {
     const sum = this.state.students.reduce((sum, current) => {
       return sum + current.grade;
     }, 0);
-    return sum / this.state.students.length;
-    /*
-    let sum = 0;
-    for (let i = 0; i < this.state.grade.length; i++) {
-      sum += this.state.grade[i].grade;
-    }
-    const average = sum / this.state.grade.length;
-    return average;
-    */
+    return Math.floor(sum / this.state.students.length);
   }
 
   render() {
@@ -64,7 +64,7 @@ class App extends React.Component {
       <div>
         <Header average={this.getGradeAverage()}/>
         <div className="row justify-content-between">
-          <GradeTable className="table" grades={this.state.students} />
+          <GradeTable className="table" grades={this.state.students} delete={this.delete.bind(this)} />
           <GradeForm className="form" create={this.createGrade.bind(this)} />
         </div>
       </div>

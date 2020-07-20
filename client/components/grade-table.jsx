@@ -11,12 +11,13 @@ class GradeTable extends React.Component {
             <th>Student Name</th>
             <th>Course</th>
             <th>Grade</th>
+            <th>Operation</th>
           </tr>
         </thead>
         <tbody>
           {this.props.grades.length !== 0
             ? this.props.grades.map(grade => {
-              return <Grade key={grade.id} grade={grade}/>;
+              return <Grade key={grade.id} grade={grade} delete={this.props.delete}/>;
             })
             : <tr>
               <td>
