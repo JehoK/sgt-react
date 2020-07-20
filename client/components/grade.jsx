@@ -13,7 +13,7 @@ class Grade extends React.Component {
         <td>{this.props.grade.name}</td>
         <td>{this.props.grade.course}</td>
         <td>{this.props.grade.grade}</td>
-        <td><button className="btn btn-danger" onClick={function () { that.props.delete(that.props.grade.id); }}>Delete</button></td>
+        <td><button className="btn btn-danger" onClick={ () => { that.props.delete(that.props.grade.id); }}>Delete</button></td>
       </tr>
     );
   }
