@@ -53,13 +53,14 @@ class App extends React.Component {
     const sum = this.state.students.reduce((sum, current) => {
       return sum + current.grade;
     }, 0);
-    return Math.floor(sum / this.state.students.length);
+    if (sum === 0) {
+      return 0;
+    } else {
+      return Math.floor(sum / this.state.students.length);
+    }
   }
 
   render() {
-    if (this.state.students.length === 0) {
-      return <h1>Loading...</h1>;
-    }
     return (
       <div>
         <Header average={this.getGradeAverage()}/>
